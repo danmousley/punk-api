@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './app.module.scss';
 import beers from './data/beers';
 import NavBar from './components/NavBar';
@@ -7,20 +7,48 @@ import Main from './components/Main';
 
 const App = () => {
   const [beerList, setBeerList] = useState(beers)
+  const [hasAbvFilter, setHasAbvFilter] = useState(false)
+  const [hasClassicFilter, setHasClassicFilter] = useState(false)
+  const [hasAcidityFilter, setHasAcidityFilter] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
 
-  const searchBeers = (searchTerm) => {
-    let searchResults = beers.filter((beer) => beer.name.toLowerCase().includes(searchTerm))
-    console.log(searchResults)
-    setBeerList(searchResults)
+  const searchBeers = (searchText) => {
+    setSearchTerm(searchText)
+    // console.log(searchText)
+    console.log(searchTerm)
+    // setBeers()
   }
+
+  const filterBeers = (filter) => {
+    if (filter === "abv") {
+      console.log(hasAbvFilter)
+      setHasAbvFilter(!hasAbvFilter)
+      console.log(hasAbvFilter)
+    } else if (filter === "classic") {
+      setHasClassicFilter(!hasClassicFilter)
+    } else if (filter === "acidity") {
+      setHasAcidityFilter(!hasAcidityFilter)
+    } else {
+      console.log("failed")
+    }
+    // setBeers()
+  }
+
+  useEffect(() => {
+    let filteredBeers = beers.filter((beer) => {
+      return (hasAbvFilter ? beer.abv > 6.0 : beer.abv) && (hasAcidityFilter ? beer.ph < 4.0 : beer.ph) && (hasClassicFilter ? beer.description.toLowerCase().includes("classic") : beer.description) && (beer.name.toLowerCase().includes(searchTerm))
+    })
+    setBeerList(filteredBeers)
+  }, [searchTerm, hasAbvFilter, hasAcidityFilter, hasClassicFilter])
 
   // searchBeers()
 
   return (
     <>
+    {/* {console.log(filterBeers("abv"))} */}
     {/* {beers.forEach((beer) => console.log(beer.name.toLowerCase().includes("b")))} */}
     <nav className={styles.navBar}>
-      <NavBar searchBeers={searchBeers}/>
+      <NavBar searchBeers={searchBeers} filterBeers={filterBeers}/>
     </nav>
     <main beers={beerList} className={styles.main}>
       <Main beers={beerList}/>

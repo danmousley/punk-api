@@ -3,7 +3,7 @@ import FilterList from '../FilterList'
 import SearchBar from '../SearchBar'
 
 const NavBar = (props) => {
-    const {searchBeers} = props
+    const {searchBeers, filterBeers} = props
     return (
         <>
         <header>
@@ -13,7 +13,7 @@ const NavBar = (props) => {
             <SearchBar searchBeers={searchBeers} />
         </section>
         <section>
-            <FilterList />
+            <FilterList filterBeers={filterBeers} />
         </section>
         </>
     )

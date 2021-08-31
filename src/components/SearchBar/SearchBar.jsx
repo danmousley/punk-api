@@ -4,7 +4,7 @@ const SearchBar = (props) => {
     const {searchBeers} = props
     return (
         <div>
-            <input onKeyUp={e => searchBeers(e.target.value)} type="text" placeholder="Search..." />
+            <input onChange={e => searchBeers(e.target.value)} type="text" placeholder="Search..." />
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+    const {searchBeers} = props
     return (
         <div>
-            Searchbar works
+            <input onKeyUp={e => searchBeers(e.target.value)} type="text" placeholder="Search..." />
         </div>
     )
 }

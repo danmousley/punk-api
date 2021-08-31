@@ -1,14 +1,15 @@
 import React from 'react';
 import CardList from '../CardList';
 
-const Main = () => {
+const Main = (props) => {
+    const {beers} =props;
     return (
         <>
         <header>
             <h1>Browse our beers</h1>
         </header>
         <section>
-            <CardList />
+            <CardList beers={beers}/>
         </section>
         </>
     )

@@ -1,10 +1,16 @@
-import React from 'react'
+import React from 'react';
+import CardList from '../CardList';
 
 const Main = () => {
     return (
-        <div>
-            Main works
-        </div>
+        <>
+        <header>
+            <h1>Browse our beers</h1>
+        </header>
+        <section>
+            <CardList />
+        </section>
+        </>
     )
 }
 

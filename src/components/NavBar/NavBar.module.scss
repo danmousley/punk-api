@@ -1,0 +1,22 @@
+@import "../../variables.scss";
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-bottom: 5%;
+    font-family: $font-title;
+
+    .logo{
+        width: 50px;
+        height: 50px;
+        padding-left: 3%;
+        color: black;
+        filter: contrast(100);
+    }
+
+    .title {
+        padding-left: 2%;
+        font-size: 40px;
+    }
+}

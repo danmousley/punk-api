@@ -24,9 +24,6 @@ const App = () => {
 
   const searchBeers = (searchText) => {
     setSearchTerm(searchText)
-    // console.log(searchText)
-    // console.log(searchTerm)
-    // setBeers()
   }
 
   const filterBeers = (filter) => {
@@ -41,25 +38,10 @@ const App = () => {
     } else {
       console.log("failed")
     }
-    // setBeers()
   }
-
-  // useEffect(() => {
-  //   let filteredBeers = beers.filter((beer) => {
-  //     return (hasAbvFilter ? beer.abv > 6.0 : beer.abv) 
-  //     && (hasAcidityFilter ? beer.ph < 4.0 : beer.ph) 
-  //     && (hasClassicFilter ? beer.description.toLowerCase().includes("classic") : beer.description) 
-  //     && (beer.name.toLowerCase().includes(searchTerm))
-  //   })
-  //   setBeerList(filteredBeers)
-  // }, [searchTerm, hasAbvFilter, hasAcidityFilter, hasClassicFilter])
-
-  // searchBeers()
 
   return (
     <>
-    {/* {console.log(filterBeers("abv"))} */}
-    {/* {beers.forEach((beer) => console.log(beer.name.toLowerCase().includes("b")))} */}
     <nav className={styles.navBar}>
       <NavBar searchBeers={searchBeers} filterBeers={filterBeers}/>
     </nav>

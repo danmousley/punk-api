@@ -1,14 +1,22 @@
+@import "./variables.scss";
+
+* {
+    font-size: 15px;
+}
+
 .navBar {
     height: 100%;
     width: 20%;
-    background-color: black;
-    color: white;
+    max-width: 20%;
+    background-color: $nav-color;
+    color: $text-color;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: 2%;
+    padding-top: 0%;
+    padding-left: 0%;
 }
 
 .main {

@@ -3,19 +3,29 @@ import styles from './app.module.scss';
 import beers from './data/beers';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
+import getBeers from './services/beers.service'
 
 
 const App = () => {
-  const [beerList, setBeerList] = useState(beers)
+  const [beerList, setBeerList] = useState([])
   const [hasAbvFilter, setHasAbvFilter] = useState(false)
   const [hasClassicFilter, setHasClassicFilter] = useState(false)
   const [hasAcidityFilter, setHasAcidityFilter] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
 
+  useEffect(async () => {
+    let beers = await getBeers(hasAbvFilter, hasClassicFilter, hasAcidityFilter, searchTerm)
+    if (hasAcidityFilter) {
+      beers = beers.filter((beer) => beer.ph < 4.0)
+    }
+    setBeerList(beers)
+  }, [searchTerm, hasAbvFilter, hasAcidityFilter, hasClassicFilter])
+
+
   const searchBeers = (searchText) => {
     setSearchTerm(searchText)
     // console.log(searchText)
-    console.log(searchTerm)
+    // console.log(searchTerm)
     // setBeers()
   }
 
@@ -34,12 +44,15 @@ const App = () => {
     // setBeers()
   }
 
-  useEffect(() => {
-    let filteredBeers = beers.filter((beer) => {
-      return (hasAbvFilter ? beer.abv > 6.0 : beer.abv) && (hasAcidityFilter ? beer.ph < 4.0 : beer.ph) && (hasClassicFilter ? beer.description.toLowerCase().includes("classic") : beer.description) && (beer.name.toLowerCase().includes(searchTerm))
-    })
-    setBeerList(filteredBeers)
-  }, [searchTerm, hasAbvFilter, hasAcidityFilter, hasClassicFilter])
+  // useEffect(() => {
+  //   let filteredBeers = beers.filter((beer) => {
+  //     return (hasAbvFilter ? beer.abv > 6.0 : beer.abv) 
+  //     && (hasAcidityFilter ? beer.ph < 4.0 : beer.ph) 
+  //     && (hasClassicFilter ? beer.description.toLowerCase().includes("classic") : beer.description) 
+  //     && (beer.name.toLowerCase().includes(searchTerm))
+  //   })
+  //   setBeerList(filteredBeers)
+  // }, [searchTerm, hasAbvFilter, hasAcidityFilter, hasClassicFilter])
 
   // searchBeers()
 

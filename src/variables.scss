@@ -2,8 +2,29 @@
 
 $text-color: #030301;
 $background-color: #FFFFF3;
-$nav-color: #3993DD;
-$card-color: #00D9C0;
-$misc-color: #D5C5C8;
+$nav-color: #0077b6;
+$card-color: #C9C9C9;
+$misc-color: #048BA8;
 $font-title: 'Pathway Gothic One';
 $font-text: 'Nanum Gothic Coding', monospace;
+
+%card {
+    height: 350px;
+    width: 250px;
+    color: $text-color;
+    backface-visibility: hidden;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-color: $card-color;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2), 0 4px 7px rgba(0, 0, 0, 0.27);
+
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.27),
+        0 10px 10px rgba(0, 0, 0, 0.3);
+        background-color: $misc-color;
+        cursor: pointer;
+    }
+}

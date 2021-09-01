@@ -1,19 +1,27 @@
+@import "../../variables.scss";
+
 .card {
-    max-height: 300px;
-    max-width: 200px;
-    height: 300px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // max-height: 300px;
+    // max-width: 200px;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    position: relative;
+    z-index: 0;
+    font-family: $font-text;
 
-    img {
-        height: 30%;
-        width: 30%;
+    &.faceDown {
+        transform: rotateY(180deg);
+      }
+
+    .front {
+        @extend %card;
     }
 
-    h4 {
-        text-align: center;
-    }
+    .back {
+        @extend %card;
+        transform: rotateY(180deg);
+      }
 }

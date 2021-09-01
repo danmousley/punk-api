@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+
+.title {
+    font-family: $font-text;
+    text-align: center;
+    font-size: 4em;
+    color: $text-color;
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 2;
+}

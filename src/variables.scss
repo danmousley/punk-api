@@ -14,7 +14,7 @@ $font-text: 'Nanum Gothic Coding', monospace;
     color: $text-color;
     backface-visibility: hidden;
     position: absolute;
-    border: 1px solid black;
+    border: 1.5px solid $text-color;
     border-radius: 10px;
     height: 100%;
     width: 100%;

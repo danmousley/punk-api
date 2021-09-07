@@ -12,8 +12,8 @@ const CardBack = (props) => {
         <div className={styles.card}>
             <h2>{name}</h2>
             <p className={styles.description}>{description}</p>
+            <h4>Goes well with:</h4>
             <section className={styles.foods}>
-                <h4>Goes well with:</h4>
                 <ul>
                     {food_pairing.map((food) => <li>{food}</li>)}
                 </ul>

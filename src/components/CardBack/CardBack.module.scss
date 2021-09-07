@@ -26,20 +26,66 @@
 
     .description {
         height: 40%;
-        padding: 2% 7%;
+        padding: 0 7%;
+        margin-bottom: 0;
         text-align: justify;
         font-size: 1.2rem;
         white-space:pre-wrap;
         overflow-x: hidden;
         text-overflow: ellipsis;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            // background: $background-color;
+            box-shadow: inset 0 0 5px $background-color;
+            // border-radius: 10px;;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $background-color;
+            // border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: $card-color;
+        }
+    }
+
+    h4 {
+        padding: 0 7%;
+        margin-top: 7%;
+        margin-bottom: 2%;
     }
 
     .foods {
         padding: 0 7%;
+        padding-top: 0px;
         margin: 0;
-        height: 30%;
+        height: 20%;
         white-space:normal;
         overflow-x: hidden;
         text-overflow: ellipsis;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            // background: $background-color;
+            box-shadow: inset 0 0 5px $background-color;
+            // border-radius: 10px;;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $background-color;
+            // border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: $card-color;
+        }
     }
 }

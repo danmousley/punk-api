@@ -3,10 +3,10 @@
 .labels {
     padding: 2%;
     margin-left: 4%;
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: start;
-    align-items: center;
+    // align-items: center;
     position: relative;
     // padding-left: 35px;
     // margin-bottom: 12px;
@@ -18,47 +18,46 @@
     user-select: none;
 
     input {
-        // position: absolute;
-        // opacity: 0;
-        // cursor: pointer;
-        // height: 0;
-        // width: 0;
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
     }
 
-    .checkBox {
-        position: relative;
-        top: 0;
-        left: 0;
-        height: 20px;
-        width: 20px;
-        background-color: $background-color;
-        border: 1px solid $text-color;
-        color: $misc-color;
-
-        &:hover {
+    &:hover {
+        .checkmark {
             cursor: pointer;
-            background-color: $background-color;
+            background-color: $card-color;
         }
+    } 
+    
 
-        &:checked {
-            background-color: $text-color;
-        }
+    input:checked ~ .checkmark {
+        background-color: $text-color;
+    } 
 
-        &:after {
-            content: "";
-            display: none;
-            position: absolute;
-            left: 9px;
-            top: 5px;
-            width: 5px;
-            height: 10px;
-            border: solid white;
-            border-width: 0 3px 3px 0;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
+    .checkmark:after {
+        content: "";
+        display: none;
+        position: absolute;
     }
+
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
 
     .labelText {
         font-family: $font-text;
@@ -66,4 +65,15 @@
         font-weight: bold;
         margin: 4%;
     }
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: $background-color;
+    border: 1px solid $text-color;
+    color: $misc-color;
 }

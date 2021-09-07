@@ -4,11 +4,12 @@ import styles from './FilterItem.module.scss'
 const FilterItem = (props) => {
     const {label, filter, filterBeers} = props;
     return (
-        <div className={styles.labels}>
+        <label className={styles.labels}>
             <input onClick={(e) => filterBeers(e.target.value)} type="checkbox" value={filter}/>
-            <span className={styles.checkBox}></span>
-            <label className={styles.labelText}>{label}</label>
-        </div>
+            <span className={styles.checkmark}></span>
+            <span className={styles.labelText}>{label}</span>
+            {/* <label className={styles.labelText}>{label}</label> */}
+        </label>
     )
 }
 

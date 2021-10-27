@@ -1,6 +1,6 @@
 # Punk API
 
-This project retrieves Brewdog's beer catalogue using their API and displays it in a React built front end, allowing the user to search and filter through the products.
+This project retrieves Brewdog's beer catalogue using their API and displays it in a React-built front end, allowing the user to search and filter through the products.
 
 ## How to view
 
